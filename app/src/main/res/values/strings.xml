@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FontChooser</string>
+    <string name="font_label">Change Font</string>
+
+    <color name="bright_orange">#ff3d00</color>
+    <color name="dull_orange">#ff7043</color>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,17 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.kris.fontchooser.MainActivity">
 
-    <TextView
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/fragmentFrame"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="350dp">
+
+    </FrameLayout>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        fab:menu_fab_size="mini"
+        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorPressed="@color/colorPrimaryDark"
+        fab:menu_colorRipple="@android:color/holo_blue_dark"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fabStyle"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/text_style"
+            fab:fab_size="mini"
+            fab:fab_colorNormal="@android:color/background_light"
+            fab:fab_colorPressed="@android:color/background_light"
+            fab:fab_colorRipple="@android:color/darker_gray"
+            fab:fab_label="@string/font_label" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fabColor"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/text_color"
+            fab:fab_size="mini"
+            fab:fab_colorNormal="@android:color/background_light"
+            fab:fab_colorPressed="@android:color/background_light"
+            fab:fab_colorRipple="@android:color/darker_gray"
+            fab:fab_label="@string/font_label" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fabSize"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/text_size"
+            fab:fab_size="mini"
+            fab:fab_colorNormal="@android:color/background_light"
+            fab:fab_colorPressed="@android:color/background_light"
+            fab:fab_colorRipple="@android:color/darker_gray"
+            fab:fab_label="@string/font_label" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fabTypeface"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/text_typeface"
+            fab:fab_size="mini"
+            fab:fab_colorNormal="@android:color/background_light"
+            fab:fab_colorPressed="@android:color/background_light"
+            fab:fab_colorRipple="@android:color/darker_gray"
+            fab:fab_label="@string/font_label" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:inputType="text"
+        android:ems="10"
+        android:layout_alignParentStart="true"
+        android:id="@+id/finalFont"
+        android:layout_above="@+id/fragmentFrame"
+        android:layout_alignParentEnd="true"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:hint="enter text" />
+
 </RelativeLayout>

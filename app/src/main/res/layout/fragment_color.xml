@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kris.fontchooser.ColorFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <EditText
+        android:layout_width="150dp"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/redNum"
+        android:layout_marginEnd="22dp"
+        android:layout_above="@+id/greenNum"
+        android:layout_alignParentEnd="true"
+        android:hint="red"
+        android:textAlignment="center"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/greenNum"
+        android:layout_below="@+id/blueNum"
+        android:layout_alignStart="@+id/redNum"
+        android:hint="green"
+        android:textAlignment="center"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/alphaNum"
+        android:layout_below="@+id/blueNum"
+        android:layout_alignStart="@+id/blueNum"
+        android:hint="alpha"
+        android:textAlignment="center"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/blueNum"
+        android:layout_marginTop="108dp"
+        android:layout_marginStart="25dp"
+        android:hint="blue"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text Color"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:id="@+id/textView"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Change"
+        android:layout_height="wrap_content"
+        android:id="@+id/textColorButton"
+        android:background="@color/colorPrimary"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        android:textColor="@android:color/background_light"
+        android:layout_width="150dp"
+        android:elevation="24dp"
+        android:layout_below="@+id/greenNum"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
+
+</RelativeLayout>
