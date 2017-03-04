@@ -2,18 +2,19 @@ package com.kris.fontchooser;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Optional;
 
 public class MainActivity extends Activity implements CommunicationInterface {
 
@@ -24,10 +25,20 @@ public class MainActivity extends Activity implements CommunicationInterface {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+
+        if(intent != null && intent.hasExtra("intentCode")){
+            Log.d("Intent? ", "YUP!");
+            setContentView(R.layout.activity_main_intent);
+        }else{
+            setContentView(R.layout.activity_main);
+        }
+
         ButterKnife.bind(this);
     }
 
+    @Optional
     @OnClick(R.id.fabStyle)
     public void chooseStyle(){
 
@@ -42,6 +53,7 @@ public class MainActivity extends Activity implements CommunicationInterface {
 
     }
 
+    @Optional
     @OnClick(R.id.fabColor)
     public void chooseColor(){
 
@@ -56,6 +68,7 @@ public class MainActivity extends Activity implements CommunicationInterface {
 
     }
 
+    @Optional
     @OnClick(R.id.fabSize)
     public void chooseSize(){
 
@@ -70,6 +83,7 @@ public class MainActivity extends Activity implements CommunicationInterface {
 
     }
 
+    @Optional
     @OnClick(R.id.fabTypeface)
     public void chooseTypeface(){
 
@@ -110,7 +124,7 @@ public class MainActivity extends Activity implements CommunicationInterface {
 
         EditText editText = (EditText)findViewById(R.id.finalFont);
 
-        editText.setTextColor(Color.argb(a, r, b, g));
+        editText.setTextColor(Color.argb(a, r, g, b));
 
     }
 
@@ -122,19 +136,19 @@ public class MainActivity extends Activity implements CommunicationInterface {
         switch (s){
 
             case "Normal":
-                editText.setTypeface(null, Typeface.NORMAL);
+                editText.setTypeface(editText.getTypeface(), Typeface.NORMAL);
                 break;
 
             case "Bold":
-                editText.setTypeface(null, Typeface.BOLD);
+                editText.setTypeface(editText.getTypeface(), Typeface.BOLD);
                 break;
 
             case "Italic":
-                editText.setTypeface(null, Typeface.ITALIC);
+                editText.setTypeface(editText.getTypeface(), Typeface.ITALIC);
                 break;
 
             case "Bold Italic":
-                editText.setTypeface(null, Typeface.BOLD_ITALIC);
+                editText.setTypeface(editText.getTypeface(), Typeface.BOLD_ITALIC);
                 break;
 
         }
@@ -149,23 +163,23 @@ public class MainActivity extends Activity implements CommunicationInterface {
         switch (s){
 
             case "Default":
-                editText.setTypeface(Typeface.DEFAULT);
+                editText.setTypeface(Typeface.DEFAULT, editText.getTypeface().getStyle());
                 break;
 
             case "Default Bold":
-                editText.setTypeface(Typeface.DEFAULT_BOLD);
+                editText.setTypeface(Typeface.DEFAULT_BOLD, editText.getTypeface().getStyle());
                 break;
 
             case "Monospace":
-                editText.setTypeface(Typeface.MONOSPACE);
+                editText.setTypeface(Typeface.MONOSPACE, editText.getTypeface().getStyle());
                 break;
 
             case "Sans Serif":
-                editText.setTypeface(Typeface.SANS_SERIF);
+                editText.setTypeface(Typeface.SANS_SERIF, editText.getTypeface().getStyle());
                 break;
 
             case "Serif":
-                editText.setTypeface(Typeface.SERIF);
+                editText.setTypeface(Typeface.SERIF, editText.getTypeface().getStyle());
                 break;
 
         }

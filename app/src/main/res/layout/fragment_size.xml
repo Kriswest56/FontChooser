@@ -18,19 +18,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Change"
-        android:layout_height="wrap_content"
-        android:id="@+id/textSizeButton"
-        android:layout_width="150dp"
-        android:typeface="monospace"
-        android:textSize="24sp"
-        android:background="@color/dull_orange"
-        android:textColor="@android:color/background_light"
-        android:layout_below="@+id/textSizeNum"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,6 +28,19 @@
         android:id="@+id/textView"
         android:layout_marginTop="70dp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Change"
+        android:layout_height="wrap_content"
+        android:id="@+id/textSizeButton"
+        android:layout_width="150dp"
+        android:typeface="monospace"
+        android:textSize="24sp"
+        android:background="@color/dull_orange"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textSizeNum"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

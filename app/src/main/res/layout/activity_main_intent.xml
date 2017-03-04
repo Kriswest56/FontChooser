@@ -3,10 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_main_intent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kris.fontchooser.MainActivity">
+
+    <Button
+        android:id="@+id/intentButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/finalFont"
+        android:background="@android:color/holo_green_dark"
+        android:text="Choose Text"
+        android:textColor="@android:color/background_light" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -14,7 +24,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_height="350dp">
-
     </FrameLayout>
 
     <com.github.clans.fab.FloatingActionMenu
@@ -82,10 +91,10 @@
         android:layout_alignParentStart="true"
         android:id="@+id/finalFont"
         android:layout_above="@+id/fragmentFrame"
-        android:layout_alignParentEnd="true"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:hint="enter text" />
+        android:hint="enter text"
+        android:layout_toStartOf="@+id/intentButton" />
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
