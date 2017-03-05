@@ -5,22 +5,25 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Optional;
 
 public class MainActivity extends Activity implements CommunicationInterface {
 
-    @Nullable
-    @BindView(R.id.textSizeNum)
-    TextView textSizeNum;
+    //Initialize fields for intent
+    private int mIntentCode = 0;
+    private int mAlpha = 255;
+    private int mRed = 0;
+    private int mGreen = 0;
+    private int mBlue = 0;
+    private float mTextSize = 20;
+    private String mTextStyle = "Normal";
+    private String mTextTypeface = "Default";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +31,38 @@ public class MainActivity extends Activity implements CommunicationInterface {
 
         Intent intent = getIntent();
 
+
         if(intent != null && intent.hasExtra("intentCode")){
+            //Activity called with an intent
             Log.d("Intent? ", "YUP!");
+            mIntentCode = intent.getIntExtra("mIntentCode", 0);
+            Log.d("Message", "" + mIntentCode);
             setContentView(R.layout.activity_main_intent);
         }else{
+            //Activity not called with an intent
             setContentView(R.layout.activity_main);
         }
 
         ButterKnife.bind(this);
+    }
+
+    @Optional
+    @OnClick(R.id.intentButton)
+    public void returnIntent(){
+
+        Intent result = new Intent();
+
+        result.putExtra("alpha", mAlpha);
+        result.putExtra("red", mRed);
+        result.putExtra("green", mGreen);
+        result.putExtra("blue", mBlue);
+        result.putExtra("textSize", mTextSize);
+        result.putExtra("textStyle", mTextStyle);
+        result.putExtra("textTypeface", mTextTypeface);
+
+        setResult(mIntentCode, result);
+        finish();
+
     }
 
     @Optional
@@ -114,6 +141,7 @@ public class MainActivity extends Activity implements CommunicationInterface {
             if(sizeNum > 100){
                 sizeNum = (float)99;
             }
+            mTextSize = sizeNum;
             editText.setTextSize(sizeNum);
         }
 
@@ -126,6 +154,11 @@ public class MainActivity extends Activity implements CommunicationInterface {
 
         editText.setTextColor(Color.argb(a, r, g, b));
 
+        mAlpha = a;
+        mRed = r;
+        mGreen = g;
+        mBlue = b;
+
     }
 
     @Override
@@ -136,18 +169,22 @@ public class MainActivity extends Activity implements CommunicationInterface {
         switch (s){
 
             case "Normal":
+                mTextStyle = s;
                 editText.setTypeface(editText.getTypeface(), Typeface.NORMAL);
                 break;
 
             case "Bold":
+                mTextStyle = s;
                 editText.setTypeface(editText.getTypeface(), Typeface.BOLD);
                 break;
 
             case "Italic":
+                mTextStyle = s;
                 editText.setTypeface(editText.getTypeface(), Typeface.ITALIC);
                 break;
 
             case "Bold Italic":
+                mTextStyle = s;
                 editText.setTypeface(editText.getTypeface(), Typeface.BOLD_ITALIC);
                 break;
 
@@ -163,22 +200,27 @@ public class MainActivity extends Activity implements CommunicationInterface {
         switch (s){
 
             case "Default":
+                mTextTypeface = s;
                 editText.setTypeface(Typeface.DEFAULT, editText.getTypeface().getStyle());
                 break;
 
             case "Default Bold":
+                mTextTypeface = s;
                 editText.setTypeface(Typeface.DEFAULT_BOLD, editText.getTypeface().getStyle());
                 break;
 
             case "Monospace":
+                mTextTypeface = s;
                 editText.setTypeface(Typeface.MONOSPACE, editText.getTypeface().getStyle());
                 break;
 
             case "Sans Serif":
+                mTextTypeface = s;
                 editText.setTypeface(Typeface.SANS_SERIF, editText.getTypeface().getStyle());
                 break;
 
             case "Serif":
+                mTextTypeface = s;
                 editText.setTypeface(Typeface.SERIF, editText.getTypeface().getStyle());
                 break;
 

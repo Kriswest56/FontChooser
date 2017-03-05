@@ -12,19 +12,19 @@
         android:id="@+id/intentButton"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/finalFont"
         android:background="@android:color/holo_green_dark"
         android:text="Choose Text"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <FrameLayout
-        android:layout_width="match_parent"
         android:id="@+id/fragmentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_height="350dp">
-    </FrameLayout>
+        android:layout_alignParentStart="true"></FrameLayout>
 
     <com.github.clans.fab.FloatingActionMenu
         android:layout_width="40dp"
@@ -88,13 +88,13 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:ems="10"
-        android:layout_alignParentStart="true"
         android:id="@+id/finalFont"
-        android:layout_above="@+id/fragmentFrame"
         android:textSize="24sp"
         android:textAlignment="center"
         android:hint="enter text"
-        android:layout_toStartOf="@+id/intentButton" />
+        android:layout_above="@+id/fragmentFrame"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
